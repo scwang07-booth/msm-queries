@@ -1,0 +1,72 @@
+<h1>Director #<%= @the_director.id %> details</h1>
+
+<dl>
+  <dt>
+  Name
+    <dd>
+    <%= @the_director.name %>
+    </dd>
+  </dt>
+  <dt>
+  Dob
+    <dd>
+    <%= @the_director.dob %>
+    </dd>
+  </dt>
+  <dt>
+  Bio
+    <dd>
+    <%= @the_director.bio %>
+    </dd>
+  </dt>
+  <dt>
+  Image
+    <dd>
+    <img src="http://robohash.org/<%= @the_director.name %>">
+    </dd>
+  </dt>
+  <dt>
+  Created at
+    <dd>
+    <%= @the_director.created_at %>
+    </dd>
+  </dt>
+    <dt>
+  Updated at
+    <dd>
+    <%= @the_director.updated_at %>
+    </dd>
+  </dt>
+</dl>
+
+<tr>
+
+<h2>Filmography</h2>
+
+<table border="1">
+<% @filmography.each do |a_film| %>
+  <tr>
+    <td>
+      <%= a_film.id %>
+    </td>
+    <td>
+      <img src ="http://robohash.org/<%= a_film.image %>">
+    </td>
+    <td>
+      <%= a_film.title %>
+    </td>
+    <td>
+      <%= a_film.year %>
+    </td>
+    <td>
+    <% d = Director.where({:id => a_film.director_id}).at(0) %>
+    <%= d.name %>
+    </td>
+    <td>
+      <a href="/movies/<%= a_film.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>
