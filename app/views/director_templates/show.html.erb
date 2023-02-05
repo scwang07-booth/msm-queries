@@ -1,5 +1,9 @@
 <h1>Director #<%= @the_director.id %> details</h1>
 
+<a href="/directors">Go back</a>
+
+<hr>
+
 <dl>
   <dt>
   Name
@@ -39,11 +43,32 @@
   </dt>
 </dl>
 
-<tr>
+<hr>
 
 <h2>Filmography</h2>
 
 <table border="1">
+  <tr>
+    <th>
+      ID
+    </th>
+      
+    <th>
+      Image
+    </th>
+      
+    <th>
+      Title
+    </th>
+    <th>
+      Year
+    </th>
+    <th>
+      Director
+    </th>
+    <th>
+    </th>
+  </tr>
 <% @filmography.each do |a_film| %>
   <tr>
     <td>
